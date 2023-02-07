@@ -1,16 +1,12 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    // "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -18,9 +14,42 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+
+    // Minimal strictness
+    // https://www.carlrippon.com/controlling-type-checking-strictness-in-typescript/
+    // https://betterprogramming.pub/getting-strict-with-typescript-2e906b48c0a
+    "checkJs": false,
+    "strict": false,
+    "alwaysStrict": false,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "strictBindCallApply": false,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+
+    // Skip stuff (less strict)
+    "skipDefaultLibCheck": true,
+
+    // More custom config
+    "allowUnreachableCode": true,
+    "baseUrl": "src", // absolute import paths
+    "outDir": "dist",
+    "types": ["node", "jest"],
+
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    // https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html#type-checking-and-dts-file-generation
+    "declaration": true
   },
-  "include": [
-    "src"
-  ]
+  "ts-node": {
+    // No extensions required on imports
+    // https://typestrong.org/ts-node/docs/options/#experimentalresolver
+    "experimentalResolver": true,
+    "experimentalSpecifierResolution": "node",
+    "esm": true // required to recognize TS extensions
+  },
+  "include": ["src"]
 }
