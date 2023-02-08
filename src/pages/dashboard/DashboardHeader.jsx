@@ -119,17 +119,17 @@ const DashboardHeader = props => {
           color="primary"
           size="small"
           disableElevation
-          onClick={() => navigate('/agency/dashboard')}
+          onClick={() => navigate('/')}
         >
           Dashboard
         </Button>
 
         <div className={classes.navItem}>
           <NavBarButtonMenu buttonText="Manage">
-            <MenuItem onClick={() => navigate('/agency/requests')}>Requests</MenuItem>
-            <MenuItem onClick={() => navigate('/agency/customers')}>Customers</MenuItem>
-            <MenuItem onClick={() => navigate('/agency/requesters')}>Requesters</MenuItem>
-            <MenuItem onClick={() => navigate('/agency/interpreters')}>Interpreters</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Requests</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Customers</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Requesters</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Interpreters</MenuItem>
           </NavBarButtonMenu>
         </div>
 
@@ -150,7 +150,7 @@ const DashboardHeader = props => {
       <div className={classes.settingsAndAvatar}>
         <div className={classes.navItem}>
           <NavBarButtonMenu icon={<SettingsIcon className={classes.settingsIcon} />}>
-            <MenuItem onClick={() => navigate('/agency/settings')}>Settings</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Settings</MenuItem>
           </NavBarButtonMenu>
         </div>
         <div className={classes.navItem}>
