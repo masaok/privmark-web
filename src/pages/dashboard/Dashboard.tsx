@@ -55,11 +55,9 @@ export const Dashboard = props => {
 
   return (
     <div className={classes.root}>
-      {/* Helmet is broken for some reason right now */}
-      {/* TypeError: Cannot read properties of undefined (reading 'add') */}
-      {/* <Helmet>
+      <Helmet>
         <title>Dashboard</title>
-      </Helmet> */}
+      </Helmet>
       <div className={clsx(classes.gridPanel, classes.headerGridPanel)}>
         <DashboardHeader />
       </div>

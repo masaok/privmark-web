@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
 
-import { getModeFromPath } from '../common/appHelpers'
+// import { getModeFromPath } from '../common/appHelpers'
 
 // General themes
 import defaultTheme from './default.custom'
@@ -25,8 +25,9 @@ const themeMap = {
 export const ThemeContext = React.createContext(themeName => {})
 
 const getDefaultTheme = () => {
-  const mode = getModeFromPath()
-  console.info(`CUSTOM THEME PROVIDER > mode: ${mode}`)
+  // const mode = getModeFromPath()
+  // console.info(`CUSTOM THEME PROVIDER > mode: ${mode}`)
+  const mode = ''
 
   // TODO: Fix this warning, otherwise it shows in Jest tests
   // if (!(mode in themeMap)) console.warn(`Unknown theme mode: "${mode}" -- using default instead...`)
