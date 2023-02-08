@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 
 import DashboardHeader from './DashboardHeader'
+import { Drawer } from '@material-ui/core'
 
 const useStyles = makeStyles(
   theme => ({

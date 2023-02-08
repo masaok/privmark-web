@@ -101,7 +101,7 @@ export default function MiniDrawer() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        // position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}

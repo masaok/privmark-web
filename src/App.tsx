@@ -3,6 +3,10 @@ import { Routes, Route, Navigate, BrowserRouter as Router } from 'react-router-d
 import { makeStyles } from '@material-ui/core/styles'
 
 import { Dashboard } from 'pages/dashboard/Dashboard'
+import { Companies } from 'pages/companies/Companies'
+import MiniDrawer from 'containers/MiniDrawer'
+import TemporaryDrawer from 'components/drawers/TemporaryDrawer'
+import CustomDrawer from 'components/drawers/CustomDrawer'
 
 // createStyles (old) vs makeStyles (new)
 // https://smartdevpreneur.com/material-ui-makestyles-usestyles-createstyles-and-withstyles-explained/
@@ -29,7 +33,9 @@ const App = props => {
     <div className={classes.root}>
       <Router>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />}>
+            <Route path="companies" element={<Companies />} />
+          </Route>
         </Routes>
       </Router>
     </div>

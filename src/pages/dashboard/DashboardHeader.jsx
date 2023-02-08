@@ -128,7 +128,7 @@ const DashboardHeader = props => {
         <div className={classes.navItem}>
           <NavBarButtonMenu buttonText="Manage">
             <MenuItem onClick={() => navigate('/')}>Requests</MenuItem>
-            <MenuItem onClick={() => navigate('/')}>Customers</MenuItem>
+            <MenuItem onClick={() => navigate('/companies')}>Companies</MenuItem>
           </NavBarButtonMenu>
         </div>
 
