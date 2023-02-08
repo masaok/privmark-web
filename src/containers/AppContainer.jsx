@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { Outlet } from 'react-router-dom'
-
-import { QueryClient, QueryClientProvider } from 'react-query'
 
 // Original Theme stuff
 import ThemeProvider from 'themes/CustomThemeProvider'
@@ -13,16 +10,9 @@ import { ThemeProvider as ThemeProviderV5 } from '@mui/material/styles'
 import { ThemeProvider as ThemeProviderV4, StylesProvider } from '@material-ui/core/styles'
 import { generateClassName } from 'utils/mui'
 
-import { user } from 'utils/auth'
-
-import theme from 'themes/default'
-import { themeV4, themeV5 } from 'themes/modes/agency'
+import theme, { themeV4, themeV5 } from 'themes/default'
 
 import { CircularProgress, CssBaseline, makeStyles } from '@material-ui/core'
-
-// Contexts
-import { LoginContext, UserContext, AgencyContext } from 'common/contexts'
-import { getSelectedAgencyByUserId } from 'utils/api'
 
 // createStyles (old) vs makeStyles (new)
 // https://smartdevpreneur.com/material-ui-makestyles-usestyles-createstyles-and-withstyles-explained/
@@ -47,27 +37,19 @@ const AppContainer = props => {
     </div>
   ) : (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <StylesProvider generateClassName={generateClassName}>
-          <ThemeProviderV4 theme={themeV4}>
-            <ThemeProviderV5 theme={themeV5}>
-              <ThemeProvider theme={theme}>
-                <LoginContext.Provider value={setAppUser}>
-                  <UserContext.Provider value={appUser}>
-                    <AgencyContext.Provider value={{ appAgency, setAppAgency }}>
-                      <CssBaseline />
-                      <Helmet>
-                        <title>AppContainer.jsx</title>
-                      </Helmet>
-                      <Outlet />
-                    </AgencyContext.Provider>
-                  </UserContext.Provider>
-                </LoginContext.Provider>
-              </ThemeProvider>
-            </ThemeProviderV5>
-          </ThemeProviderV4>
-        </StylesProvider>
-      </QueryClientProvider>
+      <StylesProvider generateClassName={generateClassName}>
+        <ThemeProviderV4 theme={themeV4}>
+          <ThemeProviderV5 theme={themeV5}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Helmet>
+                <title>AppContainer.jsx</title>
+              </Helmet>
+              <Outlet />
+            </ThemeProvider>
+          </ThemeProviderV5>
+        </ThemeProviderV4>
+      </StylesProvider>
     </HelmetProvider>
   )
 }
