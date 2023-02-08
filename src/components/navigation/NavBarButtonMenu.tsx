@@ -66,7 +66,6 @@ const NavBarButtonMenu = props => {
       ) : (
         <IconButton
           className={classes.button}
-          variant="contained"
           color="primary"
           size="small"
           aria-controls="settings-menu"

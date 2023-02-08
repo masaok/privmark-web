@@ -12,7 +12,8 @@ import SettingsIcon from '@material-ui/icons/Settings'
 
 import NavBarButtonMenu from 'components/navigation/NavBarButtonMenu'
 import StatusTooltipWrapper from 'components/debug/StatusTooltipWrapper'
-import { themeV4 } from 'themes/default'
+import { themeV4 } from 'themes/default.custom'
+import { customTheme } from 'themes/default'
 
 const useStyles = makeStyles(
   theme => ({
@@ -22,13 +23,13 @@ const useStyles = makeStyles(
       minWidth: '100%',
       justifyContent: 'center',
 
-      backgroundColor: themeV4.palette.navBar.light,
+      backgroundColor: customTheme.navBar.light,
       color: '#EEE',
 
       padding: theme.spacing(1),
       // boxShadow: '0px 3px 3px #AAA', // drop shadow
       zIndex: 1, // drop shadow on top of everything else
-      borderBottom: themeV4.palette.border.main,
+      borderBottom: customTheme.border.main,
     },
 
     // Components
@@ -62,7 +63,7 @@ const useStyles = makeStyles(
     businessLogoAndName: {
       display: 'flex',
       alignItems: 'center',
-      color: themeV4.palette.text.main,
+      color: customTheme.text,
     },
 
     businessName: {
@@ -128,8 +129,6 @@ const DashboardHeader = props => {
           <NavBarButtonMenu buttonText="Manage">
             <MenuItem onClick={() => navigate('/')}>Requests</MenuItem>
             <MenuItem onClick={() => navigate('/')}>Customers</MenuItem>
-            <MenuItem onClick={() => navigate('/')}>Requesters</MenuItem>
-            <MenuItem onClick={() => navigate('/')}>Interpreters</MenuItem>
           </NavBarButtonMenu>
         </div>
 

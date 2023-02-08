@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import { getModeFromPath } from '../common/appHelpers'
 
 // General themes
-import defaultTheme from './default'
+import defaultTheme from './default.custom'
 import mobileTheme from './mobile'
 
 // Mode-specific themes

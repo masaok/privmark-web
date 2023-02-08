@@ -1,3 +1,8 @@
+/**
+ * Trying out custom properties on themes shown here:
+ * https://github.com/mui/material-ui/issues/17544#issuecomment-858196243
+ * (but it doesn't work due to primary not being a valid property of Theme)
+ */
 import { createTheme, createTheme as createThemeV4 } from '@material-ui/core/styles'
 import { createTheme as createThemeV5 } from '@mui/material/styles'
 
@@ -22,9 +27,9 @@ const theme = createTheme({
       light: '#E8CC8D', // beige
     },
 
-    navBar: {
-      light: SLIGHTLY_GRAY,
-    },
+    // navBar: {
+    //   light: SLIGHTLY_GRAY,
+    // },
   },
 
   typography: {
@@ -57,7 +62,7 @@ const theme = createTheme({
   },
 })
 
-export const themeV4 = createThemeV4({
+export const themeV4Options = {
   palette: {
     primary: {
       main: '#2196f3',
@@ -69,15 +74,12 @@ export const themeV4 = createThemeV4({
       main: '1px solid #DFE1E3',
     },
 
-    text: {
-      main: '#556880',
-    },
-
-    navBar: {
-      light: SLIGHTLY_GRAY,
-    },
+    // text: {
+    //   main: '#556880',
+    // },
   },
-})
+}
+export const themeV4 = createThemeV4(themeV4Options)
 
 export const themeV5 = createThemeV5({
   palette: {
@@ -86,5 +88,21 @@ export const themeV5 = createThemeV5({
     },
   },
 })
+
+type CustomTheme = {
+  [Key in keyof typeof themeV4Options]: typeof themeV4Options[Key]
+}
+
+declare module '@material-ui/core/styles' {
+  interface Theme extends CustomTheme {}
+  interface ThemeOptions extends CustomTheme {}
+
+  interface Palette {
+    // neutral: Palette['primary']
+  }
+  interface PaletteOptions {
+    // neutral: PaletteOptions['primary']
+  }
+}
 
 export default theme

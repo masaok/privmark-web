@@ -10,7 +10,7 @@ import { ThemeProvider as ThemeProviderV5 } from '@mui/material/styles'
 import { ThemeProvider as ThemeProviderV4, StylesProvider } from '@material-ui/core/styles'
 import { generateClassName } from 'utils/mui'
 
-import theme, { themeV4, themeV5 } from 'themes/default'
+import theme, { themeV4, themeV5 } from 'themes/default.custom'
 
 import { CircularProgress, CssBaseline, makeStyles } from '@material-ui/core'
 
@@ -30,6 +30,8 @@ const useStyles = makeStyles(
 
 const AppContainer = props => {
   const classes = useStyles(props)
+
+  const loading = false
 
   return loading ? (
     <div className={classes.loading}>

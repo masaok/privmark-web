@@ -5,6 +5,8 @@ import clsx from 'clsx'
 import Button from '@material-ui/core/Button'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import { themeV4 } from 'themes/default.custom'
+import { customTheme } from 'themes/default'
 
 const useStyles = makeStyles(
   theme => ({
@@ -23,7 +25,7 @@ const useStyles = makeStyles(
     },
 
     navButtonRoot: {
-      backgroundColor: theme.palette.navBar.light,
+      backgroundColor: customTheme.navBar.light,
     },
   }),
   { name: 'NavBarButtonMenu' }
