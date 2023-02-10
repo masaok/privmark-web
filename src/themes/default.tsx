@@ -1,6 +1,6 @@
 import { createTheme, createTheme as createThemeV4 } from '@material-ui/core/styles'
 import { createTheme as createThemeV5 } from '@mui/material/styles'
-import { DARK_GRAY, DARK_GRAY_TEXT, VERY_LIGHT_BACKGROUND_GRAY, VERY_LIGHT_GRAY } from './colors'
+import { DARK_GRAY, DARK_GRAY_CONTENT, VERY_LIGHT_BACKGROUND_GRAY, VERY_LIGHT_GRAY } from './colors'
 
 const LIGHT_BLUE = '#42a5f5'
 const SLIGHTLY_LIGHT_BLUE = '#2686e7'
@@ -89,7 +89,7 @@ export const customTheme = {
     backgroundColor: DARK_GRAY,
   },
   content: {
-    color: DARK_GRAY_TEXT,
+    color: DARK_GRAY_CONTENT,
     backgroundColor: VERY_LIGHT_BACKGROUND_GRAY,
   },
 }

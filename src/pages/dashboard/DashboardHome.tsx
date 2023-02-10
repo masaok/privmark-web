@@ -37,7 +37,8 @@ const useStyles = makeStyles(
       flexDirection: 'column',
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
-      padding: '1rem',
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
 
       color: customTheme.sidebar.color,
       backgroundColor: customTheme.sidebar.backgroundColor,
@@ -119,21 +120,16 @@ export const DashboardHome = (props: any) => {
         </List>
         <Divider className={classes.sidebarDivider} variant="fullWidth" />
         <List>
-          {[
-            'Workspaces',
-            'Alerts & Subscriptions',
-            'Saved Searches & Lists',
-            // 'Notes & Files',
-            // 'Plugins & Apps',
-            'History',
-          ].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon className={classes.sidebarIcon}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {['Workspaces', 'Alerts & Subscriptions', 'Saved Searches & Lists', 'History'].map(
+            (text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon className={classes.sidebarIcon}>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
       </div>
       <div className={clsx(classes.gridPanel, classes.contentGrid)}>CONTENT</div>
