@@ -1,5 +1,6 @@
 import { createTheme, createTheme as createThemeV4 } from '@material-ui/core/styles'
 import { createTheme as createThemeV5 } from '@mui/material/styles'
+import { DARK_GRAY, DARK_GRAY_TEXT, VERY_LIGHT_BACKGROUND_GRAY, VERY_LIGHT_GRAY } from './colors'
 
 const LIGHT_BLUE = '#42a5f5'
 const SLIGHTLY_LIGHT_BLUE = '#2686e7'
@@ -77,8 +78,19 @@ export const customTheme = {
     // main: '#DFE1E3',
     main: '1px solid #DFE1E3',
   },
+  divider: {
+    color: '#8493A3',
+  },
   navBar: {
     light: SLIGHTLY_GRAY,
+  },
+  sidebar: {
+    color: VERY_LIGHT_GRAY,
+    backgroundColor: DARK_GRAY,
+  },
+  content: {
+    color: DARK_GRAY_TEXT,
+    backgroundColor: VERY_LIGHT_BACKGROUND_GRAY,
   },
 }
 
