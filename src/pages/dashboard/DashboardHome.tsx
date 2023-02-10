@@ -82,7 +82,7 @@ export const DashboardHome = (props: any) => {
   return (
     <div className={classes.root}>
       <div className={clsx(classes.gridPanel, classes.sidebarGrid)}>
-        <List>
+        <List key={1}>
           <ListItem button>
             <ListItemIcon className={classes.sidebarIcon}>
               <MenuIcon />
@@ -91,7 +91,7 @@ export const DashboardHome = (props: any) => {
           </ListItem>
         </List>
         <Divider className={classes.sidebarDivider} variant="fullWidth" />
-        <List>
+        <List key={2}>
           {[
             'Companies',
             'Market Analysis',
@@ -111,7 +111,7 @@ export const DashboardHome = (props: any) => {
           ))}
         </List>
         <Divider className={classes.sidebarDivider} variant="fullWidth" />
-        <List>
+        <List key={3}>
           {['Library', 'Research Center', 'News'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon className={classes.sidebarIcon}>
@@ -122,13 +122,12 @@ export const DashboardHome = (props: any) => {
           ))}
         </List>
         <Divider className={classes.sidebarDivider} variant="fullWidth" />
-        <List>
+        <List key={4}>
           {[
             'Workspaces',
             'Alerts & Subscriptions',
             'Saved Searches & Lists',
             'History',
-            'Test',
             'Test',
           ].map((text, index) => (
             <ListItem button key={text}>

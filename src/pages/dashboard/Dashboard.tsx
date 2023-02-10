@@ -56,7 +56,7 @@ export const Dashboard = (props: any) => {
   return (
     <div className={classes.root}>
       <Helmet>
-        <title>Dashboard</title>
+        <title>Dashboard | Private Market Data</title>
       </Helmet>
       <div className={clsx(classes.gridPanel, classes.headerGridPanel)}>
         <DashboardHeader />

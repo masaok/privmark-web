@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Divider, Paper, Table, TableContainer, TableHead } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -81,9 +82,8 @@ const useStyles = makeStyles(
       justifyContent: 'center',
       backgroundColor: 'white',
       padding: theme.spacing(3),
-      // backgroundColor: 'pink',
       borderRadius: theme.spacing(1),
-      // border: '1px solid #DDD',
+      // position: 'relative',  // does not cause graphs to re-render
     },
 
     // Tables
@@ -119,7 +119,7 @@ const useStyles = makeStyles(
 )
 
 const labels = ['Page A', 'Page B', 'Page C', 'Page D', 'Page E', 'Page F', 'Page G']
-const barData = {
+const initBarData = {
   labels: labels,
   datasets: [
     {
@@ -148,20 +148,37 @@ const barData = {
   ],
 }
 
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-  return { name, calories, fat, carbs, protein }
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-]
-
 export const DashboardContent = (props: any) => {
   const classes = useStyles(props)
+
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  })
+
+  const [barData, setBarData] = useState(initBarData)
+
+  useEffect(() => {
+    const handleResize = () => {
+      // console.log('RESIZING')
+      // setBarData({
+      //   ...barData,
+      //   datasets: [
+      //     {
+      //       ...barData.datasets[0],
+      //       data: [1, 2, 3, 4, 5, 6],
+      //     },
+      //   ],
+      // })
+
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      })
+    }
+
+    window.addEventListener('resize', handleResize)
+  }, [])
 
   return (
     <div className={classes.root}>
@@ -170,7 +187,7 @@ export const DashboardContent = (props: any) => {
           <div className={classes.cardTitle}>Social/Platform Software PE & VC Deal Activity</div>
           <div className={classes.cardText}>
             There has been $251M capital invested in Social/Platform Software during <b>Jul 2021</b>
-            . A 25.67% decrease from Jun 2021.
+            . A 25.67% decrease from Jun 2021. {dimensions.width}
           </div>
           <div className={classes.chart}>
             <Bar data={barData} />
@@ -183,7 +200,7 @@ export const DashboardContent = (props: any) => {
             . A 25.67% decrease from Jun 2021.
           </div>
           <div className={classes.chart}>
-            <Bar data={barData} />
+            <Bar data={barData} redraw={true} />
           </div>
         </Paper>
         <Paper className={classes.paper} elevation={4}>
