@@ -10,7 +10,7 @@ const useStyles = makeStyles(
   { name: 'Companies' }
 )
 
-export const Companies = props => {
+export const Companies = (props: any) => {
   const classes = useStyles(props)
 
   return <div className={classes.root}>COMPANIES</div>

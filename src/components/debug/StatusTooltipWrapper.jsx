@@ -30,7 +30,7 @@ const useStyles = makeStyles(
   { name: 'StatusTooltipWrapper' }
 )
 
-const StatusTooltipWrapper = props => {
+const StatusTooltipWrapper = (props: any) => {
   const classes = useStyles(props)
 
   const { children } = props

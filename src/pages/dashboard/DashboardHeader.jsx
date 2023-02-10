@@ -80,7 +80,7 @@ const useStyles = makeStyles(
   { name: 'DashboardHeader' }
 )
 
-const DashboardHeader = props => {
+const DashboardHeader = (props: any) => {
   const classes = useStyles(props)
   const navigate = useNavigate()
   // const { mode } = usePathTokens()

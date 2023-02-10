@@ -15,7 +15,7 @@ const useStyles = makeStyles(
   { name: 'CustomDrawer' }
 )
 
-const CustomDrawer = props => {
+const CustomDrawer = (props: any) => {
   const classes = useStyles(props)
 
   const [open, setOpen] = useState(false)

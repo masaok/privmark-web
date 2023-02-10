@@ -48,7 +48,7 @@ const useStyles = makeStyles(
   { name: 'Dashboard' }
 )
 
-export const Dashboard = props => {
+export const Dashboard = (props: any) => {
   const classes = useStyles(props)
 
   const navigate = useNavigate()

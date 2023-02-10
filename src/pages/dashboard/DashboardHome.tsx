@@ -9,7 +9,7 @@ const useStyles = makeStyles(
   { name: 'DashboardHome' }
 )
 
-export const DashboardHome = props => {
+export const DashboardHome = (props: any) => {
   const classes = useStyles(props)
 
   return <div className={classes.root}>DashboardHome</div>

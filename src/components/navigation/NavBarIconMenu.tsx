@@ -31,13 +31,13 @@ const useStyles = makeStyles(
   { name: 'NavBarButtonMenu' }
 )
 
-const NavBarButtonMenu = props => {
+const NavBarButtonMenu = (props: any) => {
   const classes = useStyles(props)
   const { children, buttonText } = props
 
   const [anchorEl, setAnchorEl] = useState(null)
 
-  const handleClick = event => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget)
   }
 

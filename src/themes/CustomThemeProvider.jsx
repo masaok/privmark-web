@@ -35,7 +35,7 @@ const getDefaultTheme = () => {
   return mode in themeMap ? themeMap[mode] : defaultTheme
 }
 
-const CustomThemeProvider = props => {
+const CustomThemeProvider = (props: any) => {
   // State to hold the selected theme
   const [theme, setTheme] = useState(getDefaultTheme())
 

@@ -28,7 +28,7 @@ const useStyles = makeStyles(
   { name: 'App' }
 )
 
-const AppContainer = props => {
+const AppContainer = (props: any) => {
   const classes = useStyles(props)
 
   const loading = false
