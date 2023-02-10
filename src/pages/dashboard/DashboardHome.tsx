@@ -8,6 +8,7 @@ import MailIcon from '@material-ui/icons/Mail'
 import MenuIcon from '@material-ui/icons/Menu'
 
 import { customTheme } from 'themes/default'
+import { DashboardContent } from './DashboardContent'
 
 const useStyles = makeStyles(
   theme => ({
@@ -42,16 +43,18 @@ const useStyles = makeStyles(
 
       color: customTheme.sidebar.color,
       backgroundColor: customTheme.sidebar.backgroundColor,
+
+      overflowY: 'auto',
     },
 
     contentGrid: {
       gridArea: 'content',
       display: 'flex',
       flex: 1,
-      alignItems: 'center',
+      // alignItems: 'center',
       justifyContent: 'center',
       // justifyContent: 'center',  // causes content to shift right when shrinking screen width
-      // overflowY: 'hidden',
+      overflowY: 'auto',
 
       backgroundColor: customTheme.content.backgroundColor,
     },
@@ -120,19 +123,26 @@ export const DashboardHome = (props: any) => {
         </List>
         <Divider className={classes.sidebarDivider} variant="fullWidth" />
         <List>
-          {['Workspaces', 'Alerts & Subscriptions', 'Saved Searches & Lists', 'History'].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon className={classes.sidebarIcon}>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          {[
+            'Workspaces',
+            'Alerts & Subscriptions',
+            'Saved Searches & Lists',
+            'History',
+            'Test',
+            'Test',
+          ].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon className={classes.sidebarIcon}>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
       </div>
-      <div className={clsx(classes.gridPanel, classes.contentGrid)}>CONTENT</div>
+      <div className={clsx(classes.gridPanel, classes.contentGrid)}>
+        <DashboardContent />
+      </div>
     </div>
   )
 }

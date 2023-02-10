@@ -29,7 +29,8 @@ const useStyles = makeStyles(
       backgroundColor: customTheme.navBar.light,
       color: '#EEE',
 
-      padding: theme.spacing(1),
+      paddingTop: theme.spacing(1.5),
+      paddingBottom: theme.spacing(1.5),
       // boxShadow: '0px 3px 3px #AAA', // drop shadow
       zIndex: 1, // drop shadow on top of everything else
       borderBottom: customTheme.border.main,
@@ -73,6 +74,8 @@ const useStyles = makeStyles(
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(2),
       whiteSpace: 'nowrap',
+      fontWeight: 'bold',
+      fontSize: '1.5rem',
     },
 
     // Search Bar
