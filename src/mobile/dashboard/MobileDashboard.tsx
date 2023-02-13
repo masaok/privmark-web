@@ -1,8 +1,11 @@
-import { makeStyles } from '@material-ui/core'
+import { AppBar, makeStyles } from '@material-ui/core'
 import BottomAppBar from 'mobile/components/AppBar/BottomAppBar'
 import HideAppBar from 'mobile/components/AppBar/HideAppBar'
 import HideAppBarDemo from 'mobile/components/AppBar/HideAppBarDemo'
+import HideAppBarDemoClean from 'mobile/components/AppBar/HideAppBarDemoClean'
+import { HideOnScroll } from 'mobile/components/AppBar/HideOnScroll'
 import { PrimarySearchAppBar } from 'mobile/components/AppBar/PrimarySearchAppBar'
+import { PrimarySearchToolbar } from 'mobile/components/AppBar/PrimarySearchToolbar'
 
 const useStyles = makeStyles(
   theme => ({
@@ -29,12 +32,17 @@ export const MobileDashboard = (props: any) => {
   return (
     <div>
       <div style={{ position: 'fixed', top: 0, zIndex: 100 }}>
+        {/* <PrimarySearchAppBar /> */}
         {/* <HideAppBar>
           <PrimarySearchAppBar />
         </HideAppBar> */}
-        <HideAppBarDemo>
-          <>HI</>
-        </HideAppBarDemo>
+        {/* <HideAppBarDemoClean /> */}
+
+        <HideOnScroll>
+          <AppBar>
+            <PrimarySearchToolbar />
+          </AppBar>
+        </HideOnScroll>
       </div>
       MOBILE
       <BottomAppBar />

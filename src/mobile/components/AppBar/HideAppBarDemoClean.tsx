@@ -7,6 +7,9 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Slide from '@material-ui/core/Slide'
+import { PrimarySearchAppBar } from './PrimarySearchAppBar'
+import BasicAppBar from './BasicAppBar'
+import BasicToolbar from './BasicToolbar'
 
 interface Props {
   /**
@@ -17,7 +20,7 @@ interface Props {
   children: React.ReactElement
 }
 
-function HideOnScroll(props: Props) {
+const HideOnScroll = (props: Props) => {
   //   const { children, window } = props
   const { children } = props
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -33,30 +36,17 @@ function HideOnScroll(props: Props) {
   )
 }
 
-export default function HideAppBarDemo() {
+export default function HideAppBarDemoClean() {
   return (
     <React.Fragment>
-      <CssBaseline />
       <HideOnScroll>
         <AppBar>
-          <Toolbar>
+          {/* <Toolbar>
             <Typography variant="h6">Scroll to Hide App Bar</Typography>
-          </Toolbar>
+          </Toolbar> */}
+          <BasicToolbar />
         </AppBar>
       </HideOnScroll>
-      <Toolbar />
-      <Container>
-        <Box my={2}>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-            )
-            .join('\n')}
-        </Box>
-      </Container>
     </React.Fragment>
   )
 }
