@@ -6,7 +6,8 @@ import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 
 import DashboardHeader from './DashboardHeader'
-import { Drawer } from '@material-ui/core'
+import { Drawer, useMediaQuery, useTheme } from '@material-ui/core'
+import { MobileDashboard } from 'mobile/dashboard/MobileDashboard'
 
 const useStyles = makeStyles(
   theme => ({
@@ -53,7 +54,11 @@ export const Dashboard = (props: any) => {
 
   const navigate = useNavigate()
 
-  return (
+  const theme = useTheme() // for breakpoints and media queries
+
+  const isSmUp = useMediaQuery(theme.breakpoints.up('sm'))
+
+  return isSmUp ? (
     <div className={classes.root}>
       <Helmet>
         <title>Dashboard | Private Market Data</title>
@@ -66,5 +71,7 @@ export const Dashboard = (props: any) => {
         <Outlet />
       </div>
     </div>
+  ) : (
+    <MobileDashboard />
   )
 }

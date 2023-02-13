@@ -12,7 +12,11 @@ import mobileTheme from './mobile'
 // import interpreter from './modes/interpreter'
 // import requester from './modes/requester'
 
-const themeMap = {
+type ThemeMap = {
+  [key: string]: object
+}
+
+const themeMap: ThemeMap = {
   defaultTheme,
   mobileTheme,
 
@@ -22,7 +26,7 @@ const themeMap = {
   // agency,
 }
 
-export const ThemeContext = React.createContext(themeName => {})
+export const ThemeContext = React.createContext((themeName: string) => {})
 
 const getDefaultTheme = () => {
   // const mode = getModeFromPath()
@@ -39,7 +43,7 @@ const CustomThemeProvider = (props: any) => {
   // State to hold the selected theme
   const [theme, setTheme] = useState(getDefaultTheme())
 
-  const setThemeName = themeName => {
+  const setThemeName = (themeName: string) => {
     localStorage.setItem('appTheme', themeName)
     setTheme(themeMap[themeName])
   }
