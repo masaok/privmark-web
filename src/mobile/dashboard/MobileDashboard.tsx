@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import BottomAppBar from 'mobile/components/AppBar/BottomAppBar'
+import HideAppBar from 'mobile/components/AppBar/HideAppBar'
+import HideAppBarDemo from 'mobile/components/AppBar/HideAppBarDemo'
 import { PrimarySearchAppBar } from 'mobile/components/AppBar/PrimarySearchAppBar'
 
 const useStyles = makeStyles(
@@ -27,7 +29,12 @@ export const MobileDashboard = (props: any) => {
   return (
     <div>
       <div style={{ position: 'fixed', top: 0, zIndex: 100 }}>
-        <PrimarySearchAppBar />
+        {/* <HideAppBar>
+          <PrimarySearchAppBar />
+        </HideAppBar> */}
+        <HideAppBarDemo>
+          <>HI</>
+        </HideAppBarDemo>
       </div>
       MOBILE
       <BottomAppBar />
