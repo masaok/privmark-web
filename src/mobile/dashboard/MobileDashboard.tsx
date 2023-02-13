@@ -26,7 +26,9 @@ export const MobileDashboard = (props: any) => {
 
   return (
     <div>
-      <PrimarySearchAppBar />
+      <div style={{ position: 'fixed', top: 0, zIndex: 100 }}>
+        <PrimarySearchAppBar />
+      </div>
       MOBILE
       <BottomAppBar />
     </div>
