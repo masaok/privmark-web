@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react'
 import { Divider, Paper, Table, TableContainer, TableHead } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableRow from '@material-ui/core/TableRow'
-
 import { Bar } from 'react-chartjs-2'
 import { Chart, registerables } from 'chart.js'
 
@@ -14,6 +10,9 @@ Chart.register(...registerables)
 
 import { customTheme } from 'themes/default'
 import { DashboardSideCard } from './DashboardSideCard'
+import { LineChart } from 'components/charts/LineChart'
+import { PieChartHollow } from 'components/charts/PieChartHollow'
+import { LineChartFilled } from 'components/charts/LineChartFilled'
 
 const useStyles = makeStyles(
   theme => ({
@@ -190,7 +189,8 @@ export const DashboardContent = (props: any) => {
             . A 25.67% decrease from Jun 2021. {dimensions.width}
           </div>
           <div className={classes.chart}>
-            <Bar data={barData} />
+            {/* <Bar data={barData} /> */}
+            <LineChart />
           </div>
         </Paper>
         <Paper className={classes.paper} elevation={4}>
@@ -200,7 +200,7 @@ export const DashboardContent = (props: any) => {
             . A 25.67% decrease from Jun 2021.
           </div>
           <div className={classes.chart}>
-            <Bar data={barData} redraw={true} />
+            <PieChartHollow />
           </div>
         </Paper>
         <Paper className={classes.paper} elevation={4}>
@@ -210,7 +210,8 @@ export const DashboardContent = (props: any) => {
             . A 25.67% decrease from Jun 2021.
           </div>
           <div className={classes.chart}>
-            <Bar data={barData} />
+            {/* <Bar data={barData} /> */}
+            <LineChartFilled />
           </div>
         </Paper>
       </div>

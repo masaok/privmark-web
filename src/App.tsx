@@ -2,13 +2,11 @@ import { Routes, Route, Navigate, BrowserRouter as Router } from 'react-router-d
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { Dashboard } from 'pages/dashboard/Dashboard'
 import { Companies } from 'pages/companies/Companies'
-import MiniDrawer from 'containers/MiniDrawer'
-import TemporaryDrawer from 'components/drawers/TemporaryDrawer'
-import CustomDrawer from 'components/drawers/CustomDrawer'
-import AppContainer from 'containers/AppContainer'
+import { Dashboard } from 'pages/dashboard/Dashboard'
 import { DashboardHome } from 'pages/dashboard/DashboardHome'
+
+import AppContainer from 'containers/AppContainer'
 
 // createStyles (old) vs makeStyles (new)
 // https://smartdevpreneur.com/material-ui-makestyles-usestyles-createstyles-and-withstyles-explained/

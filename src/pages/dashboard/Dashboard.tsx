@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Outlet, useNavigate } from 'react-router-dom'
+import { isMobile } from 'react-device-detect' // works better than MUI breakpoints
 
 import clsx from 'clsx'
 
@@ -58,7 +59,7 @@ export const Dashboard = (props: any) => {
 
   const isSmUp = useMediaQuery(theme.breakpoints.up('sm'))
 
-  return isSmUp ? (
+  return !isMobile ? (
     <div className={classes.root}>
       <Helmet>
         <title>Dashboard | Private Market Data</title>
