@@ -17,6 +17,7 @@ import StatusTooltipWrapper from 'components/debug/StatusTooltipWrapper'
 
 import { themeV4 } from 'themes/default.custom'
 import { customTheme } from 'themes/default'
+import { SignIn, SignOut, useAuthentication } from 'services/authService'
 
 const useStyles = makeStyles(
   theme => ({
@@ -131,6 +132,8 @@ const DashboardHeader = (props: any) => {
   // const appUser = useAppUser()
   const appUser: any = {}
 
+  const user = useAuthentication()
+
   // console.log('DashboardHeader > APP USER: ', appUser)
 
   // const handleLogout = async () => {
@@ -141,6 +144,8 @@ const DashboardHeader = (props: any) => {
   //     console.trace(err)
   //   }
   // }
+
+  console.log('USER: ', user)
 
   return (
     <div className={classes.root}>
@@ -199,11 +204,21 @@ const DashboardHeader = (props: any) => {
         </div>
 
         <div className={classes.navItem}>
-          <NavBarButtonMenu icon={<Avatar alt="Remy Sharp" src={appUser?.profileImageUrl} />}>
+          <NavBarButtonMenu
+            icon={
+              <Avatar
+                alt="Remy Sharp"
+                // src={appUser?.profileImageUrl}
+                src={user?.photoURL || ''}
+              />
+            }
+          >
             <MenuItem>{appUser?.email}</MenuItem>
             <MenuItem onClick={() => {}}>Logout</MenuItem>
           </NavBarButtonMenu>
         </div>
+
+        {!user ? <SignIn /> : <SignOut />}
       </div>
     </div>
   )
