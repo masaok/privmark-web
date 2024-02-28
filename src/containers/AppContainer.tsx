@@ -13,6 +13,8 @@ import { generateClassName } from 'utils/mui'
 import theme, { themeV4, themeV5 } from 'themes/default.custom'
 
 import { CircularProgress, CssBaseline, makeStyles } from '@material-ui/core'
+import { GoogleOAuthProvider } from '@react-oauth/google'
+import { GOOGLE_CLIENT_ID } from 'utils/constants'
 
 // createStyles (old) vs makeStyles (new)
 // https://smartdevpreneur.com/material-ui-makestyles-usestyles-createstyles-and-withstyles-explained/
@@ -25,7 +27,7 @@ const useStyles = makeStyles(
       alignItems: 'center',
     },
   }),
-  { name: 'App' }
+  { name: 'AppContainer' }
 )
 
 const AppContainer = (props: any) => {
@@ -43,11 +45,13 @@ const AppContainer = (props: any) => {
         <ThemeProviderV4 theme={themeV4}>
           <ThemeProviderV5 theme={themeV5}>
             <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <Helmet>
-                <title>AppContainer.jsx</title>
-              </Helmet>
-              <Outlet />
+              <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+                <CssBaseline />
+                <Helmet>
+                  <title>AppContainer.jsx</title>
+                </Helmet>
+                <Outlet />
+              </GoogleOAuthProvider>
             </ThemeProvider>
           </ThemeProviderV5>
         </ThemeProviderV4>

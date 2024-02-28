@@ -7,6 +7,7 @@ import { Dashboard } from 'pages/dashboard/Dashboard'
 import { DashboardHome } from 'pages/dashboard/DashboardHome'
 
 import AppContainer from 'containers/AppContainer'
+import { OauthSimpleWithRealm } from 'examples/auth/OauthSimpleWithRealm'
 
 // createStyles (old) vs makeStyles (new)
 // https://smartdevpreneur.com/material-ui-makestyles-usestyles-createstyles-and-withstyles-explained/
@@ -34,6 +35,7 @@ const App = (props: any) => {
       <Router>
         <Routes>
           <Route path="/" element={<AppContainer />}>
+            <Route path="realm" element={<OauthSimpleWithRealm />} />
             <Route path="*" element={<Dashboard />}>
               <Route index element={<DashboardHome />} />
               <Route path="companies" element={<Companies />} />
